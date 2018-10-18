@@ -11,6 +11,10 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('layouts.master');
 });
@@ -39,7 +43,7 @@ Route::get('/contact.blade.php', function () {
     return view('layouts.contact');
 });
 
-Route::get('/user/id/{id}/{name?}', function ($id, $name='default name') {
-    echo 'รหัสผู้ใช้'.$id.'<br>';
-    echo 'ชื่อผู้ใช้'.$name.'<br>';
-})->name('user');
+// Route::get('/user/id/{id}/{name?}', function ($id, $name='default name') {
+//     echo 'รหัสผู้ใช้'.$id.'<br>';
+//     echo 'ชื่อผู้ใช้'.$name.'<br>';
+// })->name('user');

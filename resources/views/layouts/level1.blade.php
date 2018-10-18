@@ -79,15 +79,15 @@
             </ul>
             {{-- ------------------------------------------------------------------ --}}
             {{-- ------------------------------------------------------------------ --}}
-            <form class="form-inline my-2 my-lg-0">
-                <button type="logout" class="btn btn-primary">Logout</button>
-            </form>
+            
+            
+
             {{-- ------------------------------------------------------------------ --}}
             {{-- ------------------------------------------------------------------ --}}
         </div>
     </nav>
     
-    <img src="https://www.maerakluke.com/wp-content/uploads/2013/12/45688989.jpg">
+    <img src="https://github.com/Naphorn/ManagementAir/blob/master/resources/views/images/level1-1.png?raw=true" class="rounded mx-auto d-block">
 
 </body>
 </html>
