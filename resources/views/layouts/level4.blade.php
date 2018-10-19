@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
 
-</head>
-<body>
-    
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <style>#navbar_fix_background {background-color: #000;}</style>
+    <style>#body_background {background-color: #FFE4E1;}</style>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Management Air</a>
+</head>
+<body id="body_background">
+
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar_fix_background">
+        <a class="navbar-brand" href="home">Management Air</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,21 +25,21 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="level1.blade.php">Level 1</a>
+                    <a class="nav-link" href="level1">Level 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="level2.blade.php">Level 2</a>
+                    <a class="nav-link" href="level2">Level 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="level3.blade.php">Level 3</a>
+                    <a class="nav-link" href="level3">Level 3</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="level4.blade.php">Level 4</a>
+                    <a class="nav-link" href="level4"><font color="blue">Level 4</font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="level5.blade.php">Level 5</a>
+                    <a class="nav-link" href="level5">Level 5</a>
                 </li>
-                {{-- ------------------------------------------------------------------ --}}
+                {{-- ------------------------Contact----------------------------------- --}}
                 {{-- ------------------------------------------------------------------ --}}
                 <!-- Button trigger modal -->
                 <div class="nav-link" data-toggle="modal" data-target="#exampleModal">Contact</div>
@@ -72,18 +74,41 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>        
+            </ul>
+            {{-- ---------------------------admin ougout--------------------------- --}}
+            {{-- ------------------------------------------------------------------ --}}         
+            <ul class="navbar-nav ml-right">
+                <!-- Authentication Links -->
+                {{-- @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
+                    </li>
+                @else --}}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                {{-- ------------------------------------------------------------------ --}}
-                {{-- ------------------------------------------------------------------ --}}            
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                {{-- @endguest --}}
             </ul>
             {{-- ------------------------------------------------------------------ --}}
-            {{-- ------------------------------------------------------------------ --}}
-            
-            
-            
-            {{-- ------------------------------------------------------------------ --}}
-            {{-- ------------------------------------------------------------------ --}}
+            {{-- ------------------------------------------------------------------ --}}   
         </div>
     </nav>
     
